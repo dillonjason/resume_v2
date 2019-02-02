@@ -30,7 +30,7 @@ export default ({ clientStats }) => (req: Request, res: Response) => {
           ${styles}
         </head>
         <body>
-          <div id="root">${root}</div>
+          <div id="root" style='height: 100%'>${root}</div>
           ${cssHash}
           ${js}
         </body>
