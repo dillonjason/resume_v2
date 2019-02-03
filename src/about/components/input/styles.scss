@@ -1,0 +1,37 @@
+@import '~nord/src/sass/nord.scss';
+
+.container {
+  $font-size: 1rem;
+  $padding: 0.5rem;
+
+  position: relative;
+  margin-top: $padding;
+
+  .input {
+    width: 100%;
+    background: transparent;
+    border: 2px solid $nord6;
+    border-radius: 5px;
+    line-height: 1.5rem;
+    padding: $padding;
+    color: $nord6;
+    font-size: $font-size;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  label {
+    margin-left: $padding;
+    position: absolute;
+    background: $nord0;
+    cursor: text;
+    top: -0.5rem;
+    transition: top 100ms ease-in-out;
+
+    &.noInput {
+      top: 0.75rem;
+    }
+  }
+}
