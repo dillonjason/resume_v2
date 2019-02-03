@@ -23,6 +23,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto'
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: 'babel-loader'
@@ -53,7 +58,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.css', '.scss']
+    extensions: ['.ts', '.tsx', '.js', '.css', '.scss', '.mjs']
   },
   plugins: [
     new CheckerPlugin(),
