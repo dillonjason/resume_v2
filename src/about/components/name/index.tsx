@@ -8,8 +8,11 @@ export const Name = withData(({ data: { loading, error, abouts } }) => {
   if (error) return <div>Error :(</div>
 
   return (
-    <h1 className={styles.container}>
-      {abouts[0].firstName} {abouts[0].lastName}
-    </h1>
+    <div className={styles.container}>
+      <h1>
+        {abouts[0].firstName} {abouts[0].lastName}
+      </h1>
+      <h3>{abouts[0].description}</h3>
+    </div>
   )
 })

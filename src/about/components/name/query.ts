@@ -6,6 +6,7 @@ const query = gql`
     abouts {
       firstName
       lastName
+      description
     }
   }
 `
@@ -13,6 +14,7 @@ const query = gql`
 type About = {
   firstName: string
   lastName: string
+  description: string
 }
 
 type Response = {

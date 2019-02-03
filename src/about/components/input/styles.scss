@@ -6,6 +6,7 @@
 
   position: relative;
   margin-top: $padding;
+  margin-bottom: $padding * 2;
 
   .input {
     width: 100%;
@@ -16,6 +17,7 @@
     padding: $padding;
     color: $nord6;
     font-size: $font-size;
+    box-sizing: border-box;
 
     &:focus {
       outline: none;

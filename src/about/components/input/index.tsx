@@ -7,7 +7,7 @@ interface onChangeParams {
 }
 
 interface InputProps {
-  onChange(params: onChangeParams): void
+  onChange?(params: onChangeParams): void
   id: string
   label: string
   textArea?: boolean
@@ -21,6 +21,10 @@ interface InputState {
 }
 
 export class Input extends React.Component<InputProps, InputState> {
+  static defaultProps = {
+    onChange: () => {}
+  }
+
   constructor(props: InputProps) {
     super(props)
     this.state = {
