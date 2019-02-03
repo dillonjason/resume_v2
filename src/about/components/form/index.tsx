@@ -17,7 +17,12 @@ export class Form extends React.Component {
         <h2>Feel Free to Reach Out</h2>
         <Input id='name' label='Name' />
         <Input id='email' label='Email' />
-        <Input id='message' label='Message' textArea />
+        <Input
+          id='message'
+          label='Message'
+          className={styles.message}
+          textArea
+        />
         <button className={styles.button}>Submit</button>
       </form>
     )

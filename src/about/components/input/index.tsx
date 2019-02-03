@@ -10,6 +10,7 @@ interface InputProps {
   onChange?(params: onChangeParams): void
   id: string
   label: string
+  className?: string
   textArea?: boolean
   inputProps?: React.InputHTMLAttributes<HTMLInputElement>
   textAreaProps?: React.InputHTMLAttributes<HTMLTextAreaElement>
@@ -67,7 +68,7 @@ export class Input extends React.Component<InputProps, InputState> {
 
   render() {
     return (
-      <div className={styles.container}>
+      <div className={`${styles.container} ${this.props.className}`}>
         <label className={this.getLabelPositionClass()} htmlFor={this.props.id}>
           {this.props.label}
         </label>
