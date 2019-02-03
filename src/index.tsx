@@ -2,14 +2,18 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import createHistory from 'history/createBrowserHistory'
 import { AppContainer } from 'react-hot-loader'
+import { ApolloProvider } from 'react-apollo'
 import { Root } from './root'
+import { apolloClient } from './apollo_client'
 
 const history = createHistory()
 
 const render = Root =>
   ReactDOM.hydrate(
     <AppContainer>
-      <Root history={history} />
+      <ApolloProvider client={apolloClient}>
+        <Root history={history} />
+      </ApolloProvider>
     </AppContainer>,
     document.getElementById('root')
   )
