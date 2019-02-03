@@ -1,6 +1,14 @@
 import ApolloClient from 'apollo-boost'
+import { InMemoryCache, NormalizedCacheObject } from 'apollo-cache-inmemory'
+
+declare global {
+  interface Window {
+    __APOLLO_STATE__: NormalizedCacheObject
+  }
+}
 
 export const apolloClient = new ApolloClient({
+  cache: new InMemoryCache().restore(window.__APOLLO_STATE__),
   uri: 'https://api-useast.graphcms.com/v1/cjpppfzbh4ghm01g03ys7sjn4/master',
   headers: {
     authorization:

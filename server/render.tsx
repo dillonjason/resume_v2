@@ -4,19 +4,24 @@ import { Request, Response } from 'express'
 // import createHistory from 'history/createMemoryHistory'
 import { flushChunkNames } from 'react-universal-component/server'
 import flushChunks from 'webpack-flush-chunks'
-import { ApolloProvider } from 'react-apollo'
+import { ApolloProvider, getDataFromTree } from 'react-apollo'
 
 import { apolloClient } from './apollo_client'
 
 import { Root } from '../src/root'
 
-export default ({ clientStats }) => (req: Request, res: Response) => {
+export default ({ clientStats }) => async (req: Request, res: Response) => {
   // const history = createHistory({ initialEntries: [req.path] })
-  const root = ReactDOM.renderToString(
+  const app = (
     <ApolloProvider client={apolloClient}>
       <Root />
     </ApolloProvider>
   )
+
+  await getDataFromTree(app)
+  const root = ReactDOM.renderToString(app)
+  const initState = apolloClient.extract()
+
   const chunkNames = flushChunkNames()
 
   const { js, styles, cssHash, scripts, stylesheets } = flushChunks(
@@ -39,6 +44,10 @@ export default ({ clientStats }) => (req: Request, res: Response) => {
         </head>
         <body>
           <div id="root" style='height: 100%'>${root}</div>
+          <script>window.__APOLLO_STATE__=${JSON.stringify(initState).replace(
+            /</g,
+            '\\u003c'
+          )};</script>
           ${cssHash}
           ${js}
         </body>
