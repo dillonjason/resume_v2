@@ -1,4 +1,4 @@
-const sendMessage = require('./send_message').sendMessage
+import { sendMessage } from './send_message'
 const express = require('express')
 const webpack = require('webpack')
 const bodyParser = require('body-parser')

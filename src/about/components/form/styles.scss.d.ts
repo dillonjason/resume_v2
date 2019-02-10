@@ -3,3 +3,5 @@
 export const button: string;
 export const container: string;
 export const message: string;
+export const response: string;
+export const show: string;
