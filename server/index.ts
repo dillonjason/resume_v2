@@ -1,5 +1,7 @@
+const sendMessage = require('./send_message').sendMessage
 const express = require('express')
 const webpack = require('webpack')
+const bodyParser = require('body-parser')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 const webpackHotServerMiddleware = require('webpack-hot-server-middleware')
@@ -12,6 +14,10 @@ const { publicPath } = clientConfig.output
 const outputPath = clientConfig.output.path
 const DEV = process.env.NODE_ENV === 'development'
 const app = express()
+
+app.use(bodyParser.json())
+
+app.post('/send_message', sendMessage)
 
 let isBuilt = false
 const done = () =>

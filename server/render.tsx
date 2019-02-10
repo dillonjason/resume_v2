@@ -39,7 +39,7 @@ export default ({ clientStats }) => async (req: Request, res: Response) => {
       <html>
         <head>
           <meta charset="utf-8">
-          <title>Testing TS</title>
+          <title>Dillon Jason</title>
           ${styles}
         </head>
         <body>
