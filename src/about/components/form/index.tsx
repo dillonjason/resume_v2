@@ -17,14 +17,16 @@ interface ISetValue {
 }
 
 export class Form extends React.Component<{}, IState> {
+  private formRef = React.createRef<HTMLFormElement>()
+
   constructor(props) {
     super(props)
     this.state = {
       name: '',
       email: '',
       message: '',
-      response: 'Test',
-      canCloseResponse: true
+      response: '',
+      canCloseResponse: false
     }
 
     this.onSubmit = this.onSubmit.bind(this)
@@ -49,6 +51,7 @@ export class Form extends React.Component<{}, IState> {
     })
 
     if (response.ok) {
+      this.formRef.current.reset()
       this.setState({
         response: await response.text(),
         canCloseResponse: true,
@@ -88,7 +91,7 @@ export class Form extends React.Component<{}, IState> {
     const showResponse = Boolean(this.state.response)
     return (
       <div className={styles.container}>
-        <form onSubmit={() => false}>
+        <form onSubmit={() => false} ref={this.formRef}>
           <h2>Feel Free to Reach Out</h2>
           <Input id='name' label='Name' onChange={this.setName} />
           <Input id='email' label='Email' onChange={this.setEmail} />
