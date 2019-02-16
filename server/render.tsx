@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom/server'
 import { Request, Response } from 'express'
-// import createHistory from 'history/createMemoryHistory'
+import createHistory from 'history/createMemoryHistory'
 import { flushChunkNames } from 'react-universal-component/server'
 import flushChunks from 'webpack-flush-chunks'
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
@@ -11,10 +11,10 @@ import { apolloClient } from './apollo_client'
 import { Root } from '../src/root'
 
 export default ({ clientStats }) => async (req: Request, res: Response) => {
-  // const history = createHistory({ initialEntries: [req.path] })
+  const history = createHistory({ initialEntries: [req.path] })
   const app = (
     <ApolloProvider client={apolloClient}>
-      <Root />
+      <Root history={history} />
     </ApolloProvider>
   )
 
