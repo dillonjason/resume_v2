@@ -1,12 +1,14 @@
 import * as React from 'react'
 
-import { About } from '../about'
+import { About } from '../views/about'
 import { Content } from '../content'
 import * as styles from './styles.scss'
 
 export const Root = () => (
   <div className={styles.container}>
-    <About />
+    <div className={styles.about}>
+      <About />
+    </div>
     <Content />
   </div>
 )

@@ -3,8 +3,6 @@
 body,
 html,
 #root {
-  background: $nord0;
-  color: $nord6;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   margin: 0;
@@ -15,4 +13,10 @@ html,
   display: flex;
   flex-direction: row;
   height: 100%;
+
+  .about {
+    width: 40%;
+    display: flex;
+    z-index: 2;
+  }
 }

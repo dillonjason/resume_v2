@@ -1,0 +1,12 @@
+@import '../variables.scss';
+
+.container {
+  background: $experience;
+  flex: 1;
+  padding: 1rem;
+  box-shadow: -2px -2px 7px 3px darken($experience, 15%);
+
+  h2 {
+    margin-top: 0;
+  }
+}
