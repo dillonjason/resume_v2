@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom'
 import createHistory from 'history/createBrowserHistory'
 import { AppContainer } from 'react-hot-loader'
 import { ApolloProvider } from 'react-apollo'
+import { BrowserRouter } from 'react-router-dom'
 import { Root } from './root'
 import { apolloClient } from './apollo_client'
 
@@ -11,9 +12,11 @@ const history = createHistory()
 const render = Root =>
   ReactDOM.hydrate(
     <AppContainer>
-      <ApolloProvider client={apolloClient}>
-        <Root history={history} />
-      </ApolloProvider>
+      <BrowserRouter>
+        <ApolloProvider client={apolloClient}>
+          <Root history={history} />
+        </ApolloProvider>
+      </BrowserRouter>
     </AppContainer>,
     document.getElementById('root')
   )
