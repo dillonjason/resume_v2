@@ -31,7 +31,12 @@
       }
 
       &.about {
+        display: block;
         background: $about;
+
+        @media screen and (min-width: 992px) {
+          display: none;
+        }
 
         &.active {
           @include get-shadow($about);

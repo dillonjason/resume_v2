@@ -7,7 +7,7 @@ import * as styles from './styles.scss'
 export const Root = () => (
   <div className={styles.container}>
     <div className={styles.about}>
-      <About />
+      <About sidebar />
     </div>
     <Content />
   </div>

@@ -15,8 +15,13 @@ html,
   height: 100%;
 
   .about {
-    width: 40%;
-    display: flex;
-    z-index: 2;
+    display: none;
+
+    @media screen and (min-width: 992px) {
+      display: block;
+      width: 40%;
+      display: flex;
+      z-index: 2;
+    }
   }
 }
