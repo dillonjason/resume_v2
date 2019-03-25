@@ -4,6 +4,8 @@ import * as styles from './styles.scss'
 
 import { Experience } from '../../types'
 
+import { ListItem } from '../../../../components/list_item'
+
 interface Props {
   experience: Experience
 }
@@ -24,7 +26,7 @@ export const ExperienceItem = ({ experience }: Props) => (
     </div>
     <div className={styles.details}>
       {experience.experienceDetails.map(experienceDetail => (
-        <div className={styles.detailItem}>{experienceDetail.detail}</div>
+        <ListItem>{experienceDetail.detail}</ListItem>
       ))}
     </div>
   </div>

@@ -13,21 +13,6 @@
     align-items: baseline;
     padding-bottom: 0.5rem;
     font-weight: 200;
-
-    .title {
-      display: flex;
-      flex-direction: column;
-
-      .company {
-        margin: 0;
-        margin-bottom: 0.25rem;
-        font-weight: 200;
-      }
-
-      .position {
-        margin: 0;
-      }
-    }
   }
 
   .details {

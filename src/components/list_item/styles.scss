@@ -1,0 +1,28 @@
+@import '~nord/src/sass/nord.scss';
+@import '../../views/variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem 1rem;
+  border: 1px solid transparent;
+  transition: border ease-in-out 500ms;
+
+  &:hover {
+    border: 1px solid $nord6;
+  }
+
+  .image {
+    width: 75px;
+    height: 75px;
+
+    overflow: hidden;
+    background-size: cover;
+    background-position: 50%;
+  }
+
+  .content {
+    align-self: center;
+    margin-left: 0.5rem;
+  }
+}
