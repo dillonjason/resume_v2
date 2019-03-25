@@ -1,11 +1,19 @@
-export type Experience = {
-  company: string
-  startDate: Date
-  endDate?: Date
-  position: string
-  experienceDetails: ExperienceDetail[]
+export type Portfolio = {
+  projectName: string
+  role: string
+  description: string
+  portfolioSkills: PortfolioSkill[]
+  portfolioImages: PortfolioImage[]
 }
 
-export type ExperienceDetail = {
-  detail: string
+export type PortfolioSkill = {
+  skill: string
+}
+
+export type PortfolioImage = {
+  image: Image
+}
+
+export type Image = {
+  url: string
 }

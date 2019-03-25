@@ -1,24 +1,28 @@
 import { gql } from 'apollo-boost'
 import { ChildDataProps, graphql } from 'react-apollo'
 
-import { Experience } from './types'
+import { Portfolio } from './types'
 
 const query = gql`
   query {
-    experiences(orderBy: startDate_DESC) {
-      company
-      startDate
-      endDate
-      position
-      experienceDetails {
-        detail
+    portfolios {
+      projectName
+      role
+      description
+      portfolioSkills {
+        skill
+      }
+      portfolioImages {
+        image {
+          url
+        }
       }
     }
   }
 `
 
 type Response = {
-  experiences: Experience[]
+  portfolios: Portfolio[]
 }
 
 type ChildProps = ChildDataProps<{}, Response>

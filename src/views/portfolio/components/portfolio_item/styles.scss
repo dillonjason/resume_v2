@@ -1,0 +1,37 @@
+@import '~nord/src/sass/nord.scss';
+@import '../../../variables.scss';
+
+.container {
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid $nord6;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 0.5rem;
+    font-weight: 200;
+
+    .projectName {
+      margin: 0;
+      margin-bottom: 0.25rem;
+      font-weight: 200;
+    }
+
+    .role {
+      margin: 0;
+    }
+  }
+
+  .description {
+    padding-top: 1rem;
+  }
+
+  .details {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+  }
+}
