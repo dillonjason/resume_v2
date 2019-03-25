@@ -1,0 +1,52 @@
+@import '~nord/src/sass/nord.scss';
+@import '../../../variables.scss';
+
+.container {
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid $nord6;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 0.5rem;
+
+    .title {
+      display: flex;
+      flex-direction: column;
+
+      .company {
+        margin: 0;
+        margin-bottom: 0.25rem;
+      }
+
+      .position {
+        margin: 0;
+      }
+    }
+  }
+
+  .details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .detailItem {
+      padding: 2rem 1rem;
+      width: 100%;
+      border: 1px solid $experience;
+      transition: border ease-in-out 500ms;
+
+      @media screen and (min-width: 992px) {
+        width: 25%;
+      }
+
+      &:hover {
+        border: 1px solid $nord6;
+      }
+    }
+  }
+}

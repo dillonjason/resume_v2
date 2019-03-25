@@ -9,6 +9,8 @@ export const Root = () => (
     <div className={styles.about}>
       <About sidebar />
     </div>
-    <Content />
+    <div className={styles.content}>
+      <Content />
+    </div>
   </div>
 )
