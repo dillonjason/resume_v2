@@ -7,7 +7,7 @@ import { SkillsList } from './components/skills_list'
 export const Skills = withData(({ data: { loading, skills } }) => {
   let content = <div>Error :(</div>
   if (loading) content = <div>Loading...</div>
-  if (skills.length) content = <SkillsList skills={skills} />
+  if (skills && skills.length) content = <SkillsList skills={skills} />
 
   return <div className={styles.container}>{content}</div>
 })
