@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development nodemon ./server",
-    "start": "NODE_ENV=production ts-node ./server",
-    "build": "webpack --config webpack/client.prod.js && webpack --config webpack/server.prod.js",
+    "start": "NODE_ENV=production node ./server",
+    "build": "build:client && build:server:render && build:server",
+    "build:client": "webpack --config webpack/client.prod.js",
+    "build:server:render": "webpack --config webpack/server.prod.js",
+    "build:server": "tsc -p ./tsconfig.prod.json",
     "test": "test"
   },
   "author": "Dillon Jason",
