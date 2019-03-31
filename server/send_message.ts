@@ -24,7 +24,10 @@ export const sendMessage = async (req: Request, res: Response) => {
     from: email,
     to: process.env.EMAIL_ADDRESS || 'test@test.com',
     subject: `${name} Contacting via Website`,
-    text: message
+    text: `${message}
+    
+    From ${email}
+    `
   }
 
   await transporter.sendMail(mail)
