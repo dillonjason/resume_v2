@@ -20,6 +20,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto'
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: 'babel-loader'
@@ -27,6 +32,20 @@ module.exports = {
       {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader'
+      },
+      {
+        test: /\.css$/,
+        loader: [
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              exportOnlyLocals: true,
+              localIdentName: '[local]'
+            }
+          },
+          'postcss-loader'
+        ]
       },
       {
         test: /\.scss$/,
@@ -51,7 +70,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.css', '.scss']
+    extensions: ['.ts', '.tsx', '.js', '.css', '.scss', '.mjs']
   },
   plugins: [
     new CheckerPlugin(),

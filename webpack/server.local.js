@@ -6,23 +6,8 @@ const WriteFilePlugin = require('write-file-webpack-plugin')
 
 const res = p => path.resolve(__dirname, p)
 
-const nodeModules = res('../node_modules')
 const entry = res('../server/render.tsx')
 const output = res('../build/server')
-
-// if you're specifying externals to leave unbundled, you need to tell Webpack
-// to still bundle `react-universal-component`, `webpack-flush-chunks` and
-// `require-universal-module` so that they know they are running
-// within Webpack and can properly make connections to client modules:
-const externals = fs
-  .readdirSync(nodeModules)
-  .filter(x => !/\.bin|react-universal-component|webpack-flush-chunks/.test(x))
-  .reduce((externals, mod) => {
-    externals[mod] = `commonjs ${mod}`
-    return externals
-  }, {})
-
-externals['react-dom/server'] = 'commonjs react-dom/server'
 
 module.exports = {
   name: 'server',
@@ -30,7 +15,6 @@ module.exports = {
   target: 'node',
   mode: 'development',
   entry: ['regenerator-runtime/runtime.js', entry],
-  externals,
   output: {
     path: output,
     filename: '[name].js',
@@ -39,6 +23,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto'
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: 'babel-loader'
@@ -46,6 +35,20 @@ module.exports = {
       {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader'
+      },
+      {
+        test: /\.css$/,
+        loader: [
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              exportOnlyLocals: true,
+              localIdentName: '[local]'
+            }
+          },
+          'postcss-loader'
+        ]
       },
       {
         test: /\.scss$/,
@@ -70,7 +73,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.css', '.scss']
+    extensions: ['.ts', '.tsx', '.js', '.css', '.scss', '.mjs']
   },
   plugins: [
     new CheckerPlugin(),

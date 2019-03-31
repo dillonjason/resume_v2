@@ -37,6 +37,21 @@ module.exports = {
         loader: 'awesome-typescript-loader'
       },
       {
+        test: /\.css$/,
+        include: /node_modules/,
+        loader: [
+          ExtractCssChunks.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[local]'
+            }
+          },
+          'postcss-loader'
+        ]
+      },
+      {
         test: /\.scss$/,
         use: [
           ExtractCssChunks.loader,
