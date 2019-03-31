@@ -5,6 +5,7 @@ import * as styles from './styles.scss'
 import { Experience } from '../../types'
 
 import { ListItem } from '../../../../components/list_item'
+import { ListGrid } from '../../../../components/list_grid'
 
 interface Props {
   experience: Experience
@@ -24,10 +25,10 @@ export const ExperienceItem = ({ experience }: Props) => (
           : 'Current'}
       </div>
     </div>
-    <div className={styles.details}>
+    <ListGrid>
       {experience.experienceDetails.map(experienceDetail => (
         <ListItem>{experienceDetail.detail}</ListItem>
       ))}
-    </div>
+    </ListGrid>
   </div>
 )

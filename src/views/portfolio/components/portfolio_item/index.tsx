@@ -7,6 +7,7 @@ import * as styles from './styles.scss'
 import { Portfolio } from '../../types'
 
 import { ListItem } from '../../../../components/list_item'
+import { ListGrid } from '../../../../components/list_grid'
 
 interface Props {
   portfolio: Portfolio
@@ -38,10 +39,10 @@ export const PortfolioItem = ({ portfolio }: Props) => (
       </div>
     )}
 
-    <div className={styles.details}>
+    <ListGrid>
       {portfolio.portfolioSkills.map(portfolioSkill => (
         <ListItem>{portfolioSkill.skill}</ListItem>
       ))}
-    </div>
+    </ListGrid>
   </div>
 )

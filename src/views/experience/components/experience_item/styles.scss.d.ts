@@ -2,7 +2,6 @@
 // Please do not change this file!
 export const company: string;
 export const container: string;
-export const details: string;
 export const header: string;
 export const position: string;
 export const title: string;

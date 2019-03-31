@@ -3,7 +3,6 @@
 export const carouselContainer: string;
 export const container: string;
 export const description: string;
-export const details: string;
 export const header: string;
 export const projectName: string;
 export const role: string;
