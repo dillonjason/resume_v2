@@ -13,6 +13,8 @@ const serverConfigProd = require('../webpack/server.prod')
 const { publicPath } = clientConfig.output
 const outputPath = clientConfig.output.path
 const DEV = process.env.NODE_ENV === 'development'
+const port = process.env.PORT || 3000
+
 const app = express()
 
 app.use(bodyParser.json())
@@ -22,9 +24,9 @@ app.post('/send_message', sendMessage)
 let isBuilt = false
 const done = () =>
   !isBuilt &&
-  app.listen(3000, () => {
+  app.listen(port, () => {
     isBuilt = true
-    console.log('BUILD COMPLETE -- Listening @ http://localhost:3000')
+    console.log(`BUILD COMPLETE -- Listening @ http://localhost:${port}`)
   })
 
 if (DEV) {
