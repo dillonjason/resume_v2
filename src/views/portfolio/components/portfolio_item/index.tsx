@@ -1,6 +1,6 @@
 import * as React from 'react'
-import Carousel from '@brainhubeu/react-carousel'
-import '@brainhubeu/react-carousel/lib/style.css'
+import { Carousel } from 'react-responsive-carousel'
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 import * as styles from './styles.scss'
 
@@ -19,12 +19,23 @@ export const PortfolioItem = ({ portfolio }: Props) => (
       <div className={styles.role}>{portfolio.role}</div>
     </div>
     <div className={styles.description}>{portfolio.description}</div>
-    {portfolio.portfolioImages.length && (
-      <Carousel>
-        {portfolio.portfolioImages.map(portfolioImage => (
-          <img src={portfolioImage.image.url} />
-        ))}
-      </Carousel>
+    {portfolio.portfolioImages.length > 0 && (
+      <div className={styles.carouselContainer}>
+        <Carousel
+          showStatus={false}
+          showThumbs={false}
+          showIndicators={false}
+          autoPlay
+          infiniteLoop
+          interval={4000}
+        >
+          {portfolio.portfolioImages.map(portfolioImage => (
+            <div className={styles.slideContainer}>
+              <img src={portfolioImage.image.url} />
+            </div>
+          ))}
+        </Carousel>
+      </div>
     )}
 
     <div className={styles.details}>
