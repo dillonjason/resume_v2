@@ -7,8 +7,6 @@ const webpackHotMiddleware = require('webpack-hot-middleware')
 const webpackHotServerMiddleware = require('webpack-hot-server-middleware')
 const clientConfig = require('../webpack/client.local')
 const serverConfig = require('../webpack/server.local')
-const clientConfigProd = require('../webpack/client.prod')
-const serverConfigProd = require('../webpack/server.prod')
 
 const { publicPath } = clientConfig.output
 const outputPath = clientConfig.output.path
@@ -45,14 +43,12 @@ if (DEV) {
 
   devMiddleware.waitUntilValid(done)
 } else {
-  webpack([clientConfigProd, serverConfigProd]).run((err, stats) => {
-    const clientStats = stats.toJson().children[0]
-    const serverRender = require('../build/server/main.js').default
+  const clientStats = require('../webpack/client-stats.json')
+  const serverRender = require('../build/server/main.js').default
 
-    app.use(publicPath, express.static(outputPath))
-    // app.get("*", render);
-    app.use(serverRender({ clientStats }))
+  app.use(publicPath, express.static(outputPath))
+  // app.get("*", render);
+  app.use(serverRender({ clientStats }))
 
-    done()
-  })
+  done()
 }

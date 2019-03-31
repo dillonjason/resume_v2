@@ -31,11 +31,18 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader'
+        use: [
+          {
+            loader: 'awesome-typescript-loader',
+            options: {
+              silent: true
+            }
+          }
+        ]
       },
       {
         test: /\.css$/,
-        loader: [
+        use: [
           {
             loader: 'css-loader',
             options: {

@@ -30,12 +30,19 @@ module.exports = {
       },
       {
         test: /\.(ts|tsx)$/,
-        loader: 'awesome-typescript-loader'
+        use: [
+          {
+            loader: 'awesome-typescript-loader',
+            options: {
+              silent: true
+            }
+          }
+        ]
       },
       {
         test: /\.css$/,
         include: /node_modules/,
-        loader: [
+        use: [
           ExtractCssChunks.loader,
           {
             loader: 'css-loader',
