@@ -43,6 +43,9 @@ export class Form extends React.Component<{}, IState> {
     })
     const response = await fetch('/send_message', {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         name: this.state.name,
         email: this.state.email,
