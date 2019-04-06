@@ -1,8 +1,9 @@
 import * as React from 'react'
 
 import { withData } from './query'
-import * as styles from './styles.scss'
 import { PortfolioList } from './components/portfolio_list'
+import { ContentContainer } from '../../components/content_container'
+import { View } from '../../enums/view'
 
 export const Portfolio = withData(({ data: { loading, portfolios } }) => {
   let content = <div>Error :(</div>
@@ -10,5 +11,5 @@ export const Portfolio = withData(({ data: { loading, portfolios } }) => {
   if (portfolios && portfolios.length)
     content = <PortfolioList portfolios={portfolios} />
 
-  return <div className={styles.container}>{content}</div>
+  return <ContentContainer view={View.portfolio}>{content}</ContentContainer>
 })

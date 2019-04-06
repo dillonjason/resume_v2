@@ -1,13 +1,9 @@
 @import '~nord/src/sass/nord.scss';
 @import '../variables.scss';
 
-.container {
+.content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  background: $about;
   color: $nord6;
-  padding: 1rem;
-  box-shadow: -2px -2px 7px 3px darken($about, 15%);
-  overflow: auto;
 }

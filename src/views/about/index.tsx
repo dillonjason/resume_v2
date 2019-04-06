@@ -6,6 +6,8 @@ import { Name } from './components/name'
 import { Summary } from './components/summary'
 import { ExternalLinks } from './components/external_links'
 import { Redirect } from 'react-router-dom'
+import { ContentContainer } from '../../components/content_container'
+import { View } from '../../enums/view'
 
 interface Props {
   sidebar?: boolean
@@ -17,11 +19,13 @@ export const About = (props: Props) => {
   }
 
   return (
-    <div className={styles.container}>
-      <Name />
-      <Summary />
-      <Form />
-      <ExternalLinks />
-    </div>
+    <ContentContainer view={View.about} showBar={!props.sidebar}>
+      <div className={styles.content}>
+        <Name />
+        <Summary />
+        <Form />
+        <ExternalLinks />
+      </div>
+    </ContentContainer>
   )
 }

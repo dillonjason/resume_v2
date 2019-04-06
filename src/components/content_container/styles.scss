@@ -1,0 +1,66 @@
+@import '../../views/variables.scss';
+
+.container {
+  flex: 1;
+  overflow: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+
+  &.about {
+    background: $about;
+    box-shadow: -2px -2px 7px 3px darken($about, 15%);
+  }
+
+  &.experience {
+    background: $experience;
+    box-shadow: -2px -2px 7px 3px darken($experience, 15%);
+  }
+
+  &.skills {
+    background: $skills;
+    box-shadow: -2px -2px 7px 3px darken($skills, 15%);
+  }
+
+  &.portfolio {
+    background: $portfolio;
+    box-shadow: -2px -2px 7px 3px darken($portfolio, 15%);
+  }
+
+  .content {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    .bar {
+      content: ' ';
+      display: block;
+      position: fixed;
+      top: 3.1rem;
+      left: 0;
+      right: 1.15rem;
+      height: 7px;
+
+      &.about {
+        background: $about;
+      }
+
+      &.experience {
+        background: $experience;
+      }
+
+      &.skills {
+        background: $skills;
+      }
+
+      &.portfolio {
+        background: $portfolio;
+      }
+    }
+  }
+
+  ​ h2 {
+    margin-top: 0;
+  }
+}
