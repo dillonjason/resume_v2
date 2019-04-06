@@ -19,11 +19,7 @@ html,
     width: 100%;
     height: 100%;
     display: flex;
-
-    @media screen and (min-width: 992px) {
-      padding-left: 35%;
-      width: 75%;
-    }
+    flex: 1;
   }
 
   .about {
@@ -31,7 +27,6 @@ html,
 
     @media screen and (min-width: 992px) {
       display: block;
-      position: fixed;
       height: 100%;
       width: 35%;
       display: flex;
