@@ -3,7 +3,7 @@
 
 .container {
   padding-top: 1rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
   border-bottom: 2px solid $nord6;
 
   .header {
@@ -11,7 +11,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem;
     font-weight: 200;
 
     .projectName {

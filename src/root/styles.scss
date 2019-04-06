@@ -7,6 +7,7 @@ html,
   font-size: 16px;
   margin: 0;
   height: 100%;
+  font-weight: 200;
 }
 
 .container {
@@ -20,8 +21,8 @@ html,
     display: flex;
 
     @media screen and (min-width: 992px) {
-      padding-left: 40%;
-      width: 60%;
+      padding-left: 35%;
+      width: 75%;
     }
   }
 
@@ -32,7 +33,7 @@ html,
       display: block;
       position: fixed;
       height: 100%;
-      width: 40%;
+      width: 35%;
       display: flex;
       z-index: 2;
     }
